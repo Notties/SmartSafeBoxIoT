@@ -1,6 +1,8 @@
 # SmartSafeBoxIoT
 NodeMCU V3 ESP8266, RFID, Solenoid lock, Passive Buzzer
 
+
+All pins
 NodeMCU V3 ESP8266
 
 ##
@@ -14,13 +16,13 @@ MFRC-522 RFID Module RC522:
    3.3V  ---->  3.3V
    
 ##
-Passive Buzzer Module
+Passive Buzzer Module:
    VCC   ---->  3.3V
    I/O  ---->  D2
    Gnd   ---->  Gnd
 
 ##
-Relay 5V.
+Relay 5V:
    VCC   ---->  3.3V
    Gnd   ---->  Gnd
    IN ----> D0
