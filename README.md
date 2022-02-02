@@ -33,4 +33,4 @@ Relay 5V:
    Common ----> + Solenoid lock
 ##
 
-![Circuit Diagram](http://url/to/img.png)
+![Circuit Diagram](https://github.com/Notties/SmartSafeBoxIoT/blob/main/Circuit%20Diagram.png?raw=true)
