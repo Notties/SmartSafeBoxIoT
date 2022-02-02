@@ -1,12 +1,14 @@
 # SmartSafeBoxIoT
 NodeMCU V3 ESP8266, RFID, Solenoid lock, Passive Buzzer
 
-##
 # The Lock System
+### Scan cards
+Unlocked by authorized cards only. If the card is scanned incorrectly more than 3 times, a notification will be sent to LINE.
 
-All pin
+### Unlock the bolt through the application.
+Unlock by blynk application and send notification to LINE Application
 
-##
+# All pin
 MFRC-522 RFID Module RC522:
    SDA   ---->  D8
    SCK   ---->  D5
@@ -16,13 +18,13 @@ MFRC-522 RFID Module RC522:
    RST   ---->  D4
    3.3V  ---->  3.3V
    
-##
+
 Passive Buzzer Module:
    VCC   ---->  3.3V
    I/O  ---->  D2
    Gnd   ---->  Gnd
 
-##
+
 Relay 5V:
    VCC   ---->  3.3V
    Gnd   ---->  Gnd
