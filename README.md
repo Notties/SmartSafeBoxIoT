@@ -2,8 +2,7 @@
 NodeMCU V3 ESP8266, RFID, Solenoid lock, Passive Buzzer
 
 
-All pins 
-NodeMCU V3 ESP8266
+All pin
 
 ##
 MFRC-522 RFID Module RC522:
@@ -28,3 +27,4 @@ Relay 5V:
    IN ----> D0
    Normally Open ----> + Battery 9V
    Common ----> + Solenoid lock
+##
