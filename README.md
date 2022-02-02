@@ -13,7 +13,7 @@ MFRC-522 RFID Module RC522
    RST   ---->  D4
    3.3V  ---->  3.3V
    
-<br/>
+<br>
 Passive Buzzer Module
    VCC   ---->  3.3V
    I/O  ---->  D2
