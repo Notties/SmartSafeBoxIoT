@@ -5,23 +5,23 @@
 #include <BlynkSimpleEsp8266.h>
 
 #define BLYNK_PRINT Serial
-#define LINE_TOKEN "aMuxPGS7kMVr13k5NGOtSOMiyn9clSxQYHwezqg4xqf"
+#define LINE_TOKEN "aMuxPGS7kMVr13k5NGOtSOMiyn9clSxQYHwezqg4xqf" //LINE_TOKEN 
 #define RST_PIN  D4
 #define SS_PIN  D8
-#define RELAY  D0
+#define RELAY  D0 //RELAY Pin 
 
-WidgetLCD lcd(V0);
+WidgetLCD lcd(V0); //WidgetLCD in Blynk
 MFRC522 mfrc522(SS_PIN, RST_PIN);
-char auth[] = "D5P0dGj3mpBo9cPHgdtZdLa1qhZ2zEbx";
-char ssid[] = "Test";
-char pass[] = "12310834";
+char auth[] = "D5P0dGj3mpBo9cPHgdtZdLa1qhZ2zEbx"; //auth Blynk
+char ssid[] = "Test"; //Wifiname
+char pass[] = "12310834"; //Paassowrd Wifi
 
 String rfid_in = "";
 int buzzer = D2;
-int cnt = 0;
+int cnt = 0; //cnt check count
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(9600); //start Serial 9600
   pinMode(RELAY, OUTPUT);
   pinMode(buzzer, OUTPUT);
   digitalWrite(buzzer, LOW), delay(50), digitalWrite(buzzer, HIGH);
@@ -44,7 +44,7 @@ void loop() {
     
     delay(1000);
   
-  if(rfid_in=="3A 85 A1 A2"){
+  if(rfid_in=="3A 85 A1 A2"){ //found card
       digitalWrite(buzzer, LOW), delay(200), digitalWrite(buzzer, HIGH);
       digitalWrite(RELAY, LOW);
       lcd.print(0, 0, "CARD ACCESS OPEN");
@@ -54,7 +54,7 @@ void loop() {
       delay(2000);
       digitalWrite(RELAY, HIGH);
 	  cnt = 0;
-  }else if(rfid_in=="F3 F8 E3 9A"){
+  }else if(rfid_in=="F3 F8 E3 9A"){ //found card
       digitalWrite(buzzer, LOW), delay(200), digitalWrite(buzzer, HIGH);
       digitalWrite(RELAY, LOW);
       lcd.print(0, 0, "CARD ACCESS OPEN");
@@ -64,7 +64,7 @@ void loop() {
       delay(2000);
       digitalWrite(RELAY, HIGH);
 	  cnt = 0;
-  }else{
+  }else{ //not found card
       for (int i = 0; i <= 2; i++)delay(100), digitalWrite(buzzer, LOW), delay(100), digitalWrite(buzzer, HIGH);
       digitalWrite(RELAY, HIGH);
       lcd.print(0, 0, " Card not Found ");
@@ -75,9 +75,9 @@ void loop() {
       
       delay(2000);
   }
-  if(cnt == 3){
-    LINE.notify("CARD NOT FOUND [3]>> "+rfid_in);
-    cnt = 0;
+  if(cnt == 3){ //when cnt count > 3
+    LINE.notify("CARD NOT FOUND [3]>> "+rfid_in); //send message line notify
+    cnt = 0; //reset cnt = 0
   }
   }
 
@@ -85,13 +85,12 @@ void loop() {
   DisplayWAiT_CARD();
 }
 
-void DisplayWAiT_CARD() {
+void DisplayWAiT_CARD() { //Display LCD Bylnk wait for ScanCard
   lcd.print(0, 0, "   ATTACH THE   ");
   lcd.print(0, 1, "      CARD      ");
 }
 
-BLYNK_WRITE(V1)
-{
+BLYNK_WRITE(V1) { //Press button unlock from blynk app
   int pinValue = param.asInt();
   if (pinValue == 1)
   {
@@ -109,8 +108,7 @@ BLYNK_WRITE(V1)
   }
 }
 
-BLYNK_WRITE(V2)
-{
+BLYNK_WRITE(V2) { //Press button lock from blynk app
   int pinValue = param.asInt();
   if (pinValue == 1)
   {
@@ -125,7 +123,7 @@ BLYNK_WRITE(V2)
   }
 }
 
-String rfid_read() {
+String rfid_read() { //RFID Read
   String content = "";
   for (byte i = 0; i < mfrc522.uid.size; i++)
   {
