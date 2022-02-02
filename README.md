@@ -3,7 +3,7 @@ NodeMCU V3 ESP8266, RFID, Solenoid lock, Passive Buzzer
 
 NodeMCU V3 ESP8266
 
-<br/>
+<br>
 MFRC-522 RFID Module RC522
    SDA   ---->  D8
    SCK   ---->  D5
