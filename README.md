@@ -32,3 +32,5 @@ Relay 5V:
    Normally Open ----> + Battery 9V
    Common ----> + Solenoid lock
 ##
+
+![Circuit Diagram](http://url/to/img.png)
